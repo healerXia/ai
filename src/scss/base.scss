@@ -1,0 +1,28 @@
+@import './reset';
+
+html,body{
+	margin: 0; 
+	padding: 0;
+	display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper{
+	width:1200px;
+  margin: 0 auto;
+}
+
+.Dis{
+	display: inline-block;
+}
+
+.BR{
+	border-right:1px solid #e5e5e5;
+	height: 124px; 
+}
+.BB{
+	border-bottom: 1px solid #e5e5e5; 
+	height: 124px;
+}
+
