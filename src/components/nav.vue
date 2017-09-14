@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div class="bg" :style ="bg"><div class="nav-span"><span>让产品更智能 更懂用户</span></div></div>  
+        
     </div>
   </div>
 </template>
@@ -22,13 +22,11 @@
   export default{
     data(){
       return{
-        bg: {
-          backgroundImage: "url(" + require("../images/bg.png") + ")"
-        },
         ulHerder:[
           {
             value:1,
             name:'首页',
+            path:'/home'
           },
           {
             value:2,

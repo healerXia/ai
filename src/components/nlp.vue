@@ -1,16 +1,26 @@
 <template>
   <div>
+    <div class="nlpBg" :style ="bg">
+      <div class="wrapper">
+        <div class="nav-span">
+          <span class="Dis">{{nav_title}}</span>
+          <div>{{nav_content}}</div>
+        </div>
+      </div>
+    </div>
     <div class="nlp">
       <div class="wrapper">
         <ul>
-          <li v-for="item in nlpUl">
-            <div class="nlp-img"><img :src="item.imgUrl" alt=""></div>
-            <div class="nlp-content">
-              <div class="nlp-title">{{item.title}}</div>
-              <div class="nlp-introduce">{{item.introduce}}</div>
-            </div>
-            <span>{{item.name}}</span>
-          </li>
+          <router-link :to="item.path" v-for="item in nlpUl">
+            <li>
+              <div class="nlp-img"><img :src="item.imgUrl" alt=""></div>
+              <div class="nlp-content">
+                <div class="nlp-title">{{item.title}}</div>
+                <div class="nlp-introduce">{{item.introduce}}</div>
+              </div>
+              <span>{{item.name}}</span>
+            </li>
+          </router-link>
         </ul>
       </div>
     </div>
@@ -36,58 +46,53 @@
   export default{
     data(){
       return{
+        nav_title:'自然语言处理',
+        nav_content:'基于领先技术打造的语言处理技术帮助你更有效率的理解客户',
         bg: {
-          backgroundImage: "url(" + require("../images/bg.png") + ")"
+          backgroundImage: "url(" + require("../images/nlp.png") + ")"
         },
-        ulHerder:[
-          {
-            value:1,
-            name:'首页',
-            onOk: () => {
-              this.$router.push('');
-            }
-          },
-          {
-            value:2,
-            name:'产品服务'
-          },
-          {
-            value:3,
-            name:'新闻中心'
-          },
-          {
-            value:4,
-            name:'SDK下载'
-          },
-          {
-            value:5,
-            name:'文档与支持'
-          }
-        ],
         nlpUl:[
           {
+            imgUrl:require("../images/nlp1s.png"),
             title:'分词',
-            introduce:'将连续的自然语言文本，切分成具有语意合理性和完整性的词汇序列'
+            introduce:'将连续的自然语言文本，切分成具有语意合理性和完整性的词汇序列',
+            id:1,
+            path:'/nlpPages/1'
           },
           {
+            imgUrl:require("../images/nlp2s.png"),
             title:'依存句法分析',
-            introduce:'将连续的自然语言文本，切分成具有语意合理性和完整性的词汇序列，实现对自然语言的精准理解'
+            introduce:'将连续的自然语言文本，切分成具有语意合理性和完整性的词汇序列，实现对自然语言的精准理解',
+            id:2,
+            path:'/nlpPages/2'
           },
           {
+            imgUrl:require("../images/nlp3s.png"),
             title:'词向量表示',
-            introduce:'依托全网海量优质数据和深度神经网络技术，实现对词汇的向量化表示，实现文本的可计算'
+            introduce:'依托全网海量优质数据和深度神经网络技术，实现对词汇的向量化表示，实现文本的可计算',
+            id:3,
+            path:'/nlpPages/3'
           },
           {
+            imgUrl:require("../images/nlp4s.png"),
             title:'文本相似度',
-            introduce:'依托全网海量优质数据和深度神经网络技术，通过词语向量化来计算两个词之间的相似度'
+            introduce:'依托全网海量优质数据和深度神经网络技术，通过词语向量化来计算两个词之间的相似度',
+            id:4,
+            path:'/nlpPages/4'
           },
           {
+            imgUrl:require("../images/nlp5s.png"),
             title:'观点抽取',
-            introduce:'自动分析评论内容，提取用户观点'
+            introduce:'自动分析评论内容，提取用户观点',
+            id:5,
+            path:'/nlpPages/5'
           },
           {
+            imgUrl:require("../images/nlp6s.png"),
             title:'情感倾向判断',
-            introduce:'对含主观信息的文本进行情感极性判断，支持产品优化和营销决策'
+            introduce:'对含主观信息的文本进行情感极性判断，支持产品优化和营销决策',
+            id:6,
+            path:'/nlpPages/6'
           }
         ],
         caseUl:[
@@ -127,4 +132,3 @@
     }
   }
 </script>
-

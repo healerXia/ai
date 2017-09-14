@@ -1,4 +1,39 @@
 .ai{
+  .nlpBg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 547px;
+    position: relative;
+    .wrapper{
+      height: 547px;
+      position: relative;
+      .nav-span{
+        width: 288px;
+        height: 134px;
+        position: absolute;
+        top:330px;
+        width:300px;
+        text-align:left;
+        span{
+          inline-height:66px;
+          font-family:PingFangHK-Thin;
+          font-size:48px;
+          color:#000;
+          text-align:left;
+        }
+        div{
+          margin-left: 7px;
+          width: 270px;
+          font-family:PingFangSC-Medium;
+          font-size:18px;
+          color:#2b3540;
+          text-align:left;
+        }
+      } 
+    }
+  }
   .nlp{
     height:722px;
     width:100%;
@@ -8,6 +43,7 @@
         margin-left:-20px;
         padding-top:54px;
         li{
+          cursor: pointer;
           display:inline-block;
           float:left;
           margin-left:47px;
@@ -15,7 +51,6 @@
           width:350px;
           height:240px;
           .nlp-img{
-            background:#151515;
             width:350px;
             height:144px;
           }

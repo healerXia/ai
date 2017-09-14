@@ -1,5 +1,6 @@
 <template>
   <div>
+  	<div class="bg" :style ="bg"><div class="nav-span"><span>让产品更智能 更懂用户</span></div></div>
     <div class="enterance wrapper">
       <div class="enter-title"><span>快速接入AI入口</span></div>
       <ul>
@@ -33,6 +34,9 @@
 
 		data(){
 			return{
+				bg: {
+          backgroundImage: "url(" + require("../images/bg.png") + ")"
+        },
 				enterUl:[
 					{
 						imgUrl:require('../images/language.svg'),
