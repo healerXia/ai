@@ -22,9 +22,16 @@
 				<div class="content">
 					<span class="Block">功能演示</span>
 					<span class="demo_title">示例</span>
-					<textarea id="eg" v-model="eg" onblur="blur()"></textarea>
+					<textarea class="eg" v-model="eg"></textarea>
 					<span class="demo_title">向量结果</span>
-					<textarea v-model="result" readonly="readonly"></textarea>
+					<div class="result">
+						<div>
+							<span v-for="item in dataList">{{item.keyWord}}</span>
+						</div>
+						<div>
+							<span v-for="item in dataList">{{item.nature}}</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -42,39 +49,65 @@ import $ from "jquery";
           backgroundImage: "url(" + require("../images/nlp1.png") + ")"
         },
         nlp_introduce: '依托全网海量优质数据和深度神经网络技术，通过词语向量化来计算两个词之间的相似度',
-        eg:'qqqq',
-        result:''
+        eg:'',
+        result:'',
+        dataList:[]
       }
     },
-    created(){
+    mounted(){
     	let vm = this;
-    	$.ajax({
-				url:"/naturalWordController/getSegmentWord",
-				type:"post",
-				data:{
-					sentence:vm.eg,
-					mode:1,
-				},function(message,data){
-					console.log(data);
-				}
-			});
+  		$(".eg").on("blur",function(){
+  			if(vm.eg!=''){
+  				$.ajax({
+						url:"/naturalWordController/getSegmentWord",
+						type:"post",
+						data:{
+							sentence:vm.eg,
+							mode:1,
+							// topK:'',
+						}
+					}).then(function(data){
+						console.log(data);
+						if(data.errorCode == 0){
+							vm.dataList = data.result.dataList;
+							console.log(vm.dataList);
+						}
+					});
+  			}
+    	})
     },
     methods:{
-    // 	blur(){
-    // 		let vm = this;
-	   //  	$.ajax({
-				// 	url:"/naturalWordController/getSegmentWord",
-				// 	type:"post",
-				// 	data:{
-				// 		sentence:vm.eg,
-				// 		mode:1,
-				// 	},function(message,data){
-				// 		console.log(data);
-				// 	}
-				// });
-    // 	}
+
     }
   }
 
 </script>
 
+<style lang="scss">
+.ai{
+	.demo{
+		.wrapper{
+		 	.content{
+		 		.eg{
+		 			font-size: 22px;
+			    padding-left: 30px;
+			    line-height: 120px;
+		 		}
+		 	 	.result{
+		 	 	 	div{ 
+		 	 	 		margin-left:25px;
+		 	 	 		span{
+		 	 	 			width: 50px;
+					    line-height: 70px;
+					    border: 1px solid #000;
+					    font-size: 20px;
+					    padding: 5px;
+					    margin-left: 5px;
+		 	 	 	}
+		 	 	 }
+		 	 	}
+	 	 	}
+	 	}
+	}
+}
+</style>

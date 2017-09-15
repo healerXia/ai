@@ -22,9 +22,9 @@
 				<div class="content">
 					<span class="Block">功能演示</span>
 					<span class="demo_title">示例</span>
-					<textarea></textarea>
+					<textarea class="eg" v-model="eg"></textarea>
 					<span class="demo_title">向量结果</span>
-					<textarea></textarea>
+					<textarea v-model="result" readonly="readonly"></textarea>
 				</div>
 			</div>
 		</div>
@@ -32,8 +32,8 @@
 </template>
 
 <script>
+import $ from "jquery";
 	export default{
-
 		data(){
 			return{
 				nav_title:'依存句法分析',
@@ -42,10 +42,32 @@
           backgroundImage: "url(" + require("../images/haha.png") + ")"
         },
         nlp_introduce: '依托全网海量优质数据和深度神经网络技术，通过词语向量化来计算两个词之间的相似度',
+        eg:'',
+        result:''
       }
+    },
+    mounted(){
+    	let vm = this;
+    		$(".eg").on("blur",function(){
+    			if(vm.eg!=''){
+    				$.ajax({
+							url:"/naturalWordController/getAnalysisWordsBaseOnExistsService",
+							type:"post",
+							data:{
+								sentence:vm.eg,
+								mode:1,
+								// topK:'',
+							}
+						}).then(function(data){
+							console.log(data);
+						})
+    			}
+	    	})
+    },
+    methods:{
+
     }
   }
 
 </script>
 
-s
