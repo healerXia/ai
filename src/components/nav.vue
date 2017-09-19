@@ -8,7 +8,9 @@
           </div>
           <div class="header-ul">
             <ul class="Dis">
-              <li v-for="item in ulHerder" :value="item.value">{{item.name}}</li>
+              <li v-for="item in ulHerder" :value="item.value">
+              <router-link :to="item.path">{{item.name}}</router-link>
+              </li>
             </ul>
           </div>
         </div>
@@ -30,19 +32,23 @@
           },
           {
             value:2,
-            name:'产品服务'
+            name:'产品服务',
+            path:'/home'
           },
           {
             value:3,
-            name:'新闻中心'
+            name:'新闻中心',
+            path:'/home'
           },
           {
             value:4,
-            name:'SDK下载'
+            name:'SDK下载',
+            path:'/home'
           },
           {
             value:5,
-            name:'文档与支持'
+            name:'文档与支持',
+            path:'/home'
           }
         ]
       }

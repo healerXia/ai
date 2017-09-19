@@ -23,7 +23,7 @@
 					<span class="Block">示例</span>
 					<span class="nlp_title">原句</span>
 					<div class="nlp_sentence">Root人工智能崛起暗示地球生命进入3.0时代</div>
-					<span class="nlp_title">分析结果</span>
+					<span class="nlp_title">向量结果</span>
 					<div class="show_result">
 						
 					</div>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import $ from "jquery";
 	export default{
 		data(){
 			return{
