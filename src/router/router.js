@@ -6,14 +6,14 @@ import VueRouter from "vuerouter";
 import Ai from "../components/ai.vue";
 import Test from "../components/test.vue";
 import Test2 from "../components/test2.vue";
-import Nlp from "../components/nlp.vue";
-import Nlp_pages from "../components/nlp-pages.vue";
-import Nlp1 from "../components/nlp1.vue";
-import Nlp2 from "../components/nlp2.vue";
-import Nlp3 from "../components/nlp3.vue";
-import Nlp4 from "../components/nlp4.vue";
-import Nlp5 from "../components/nlp5.vue";
-import Nlp6 from "../components/nlp6.vue";
+import Nlp from "../components/nlp/nlp.vue";
+import Nlp_pages from "../components/nlp/nlp-pages.vue";
+import Nlp1 from "../components/nlp/nlp1.vue";
+import Nlp2 from "../components/nlp/nlp2.vue";
+import Nlp3 from "../components/nlp/nlp3.vue";
+import Nlp4 from "../components/nlp/nlp4.vue";
+import Nlp5 from "../components/nlp/nlp5.vue";
+import Nlp6 from "../components/nlp/nlp6.vue";
 
 //component
 import Layout from "../components/layout.vue";
