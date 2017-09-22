@@ -36,7 +36,8 @@
 					<span class="Block">功能演示</span>
 					<span class="nlp_title">示例</span>
 					<textarea class="nlp_sentence" v-model="eg"></textarea>
-					<span class="nlp_title">向量结果</span>
+          <ButtonC class="W120 nlpBtn" @click="disResult()">依存句法分析</ButtonC>
+					<span class="nlp_title">分析结果</span>
 					<div class="result">
 						<TableC class="demo_result" height="200" :columns="demo_columns" :data="demo_data"></TableC>
 					</div>
@@ -48,9 +49,9 @@
 
 <script>
 import $ from "jquery";
-import {Table} from "ui";
+import {Table,Button} from "ui";
 	export default{
-		components:{TableC:Table},
+		components:{TableC:Table,ButtonC:Button},
 		props: {id:String},
 		data(){
 			return{
@@ -130,14 +131,13 @@ import {Table} from "ui";
       }
     },
     mounted(){
-    	this.getDemoData();
       $(".demo_result").hide();
     },
 
     methods:{
-    	getDemoData(){
+    	disResult(){
     		let vm = this;
-    		$(".nlp_sentence").on("blur",function(){
+    		//$(".nlp_sentence").on("blur",function(){
     			if(vm.eg!=''){
     				$.ajax({
 							url:"/naturalWordController/getAnalysisWordsBaseOnExistsService",
@@ -153,12 +153,9 @@ import {Table} from "ui";
 							let demo_data = [];
               demo_data = vm.demo_data;
 							for(let i=0;i<demo_data.length;i++){
-							  
-							  console.log("1111");
 								demo_data[i].name = data.result.dataList[i].NAME;
 								demo_data[i].deprel = data.result.dataList[i].DEPREL;
 								demo_data[i].lemma = data.result.dataList[i].HEAD.LEMMA;
-								//this.toParam();
 
 							}
 							
@@ -166,21 +163,8 @@ import {Table} from "ui";
     			}else{
             $(".demo_result").hide();
           }
-	    	})
+	    	//})
     	}
-    	// toParam(objs){
-     //    var str=""
-     //    for(let item in objs){
-     //      if(objs[item]){
-     //        let a=objs[item]
-     //        a=(a+"").replace(/(^\s*)|(\s*$)/g,"")
-     //        str=str+item+"="+a+'&';
-     //      }
-     //    }
-     //    str=str.substring(0,str.length-1) ;
-     //    return str;
-     //  },
-
     }
   }
 

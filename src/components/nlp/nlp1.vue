@@ -41,6 +41,7 @@
 					<span class="Block">功能演示</span>
 					<span class="nlp_title">原句</span>
 					<textarea class="nlp_sentence" v-model="eg"></textarea>
+					<ButtonC class="W120 nlpBtn" @click="disResult()">分词</ButtonC>
 					<span class="nlp_title">分词结果</span>
 					<div class="result">
 						<div>
@@ -58,7 +59,9 @@
 
 <script>
 import $ from "jquery";
+import {Button} from "ui";
 	export default{
+		components:{ButtonC:Button},
 		data(){
 			return{
 				nav_title:'分词',
@@ -73,29 +76,31 @@ import $ from "jquery";
       }
     },
     mounted(){
-    	let vm = this;
-  		$(".nlp_sentence").on("blur",function(){
-  			if(vm.eg!=''){
-  				$.ajax({
-						url:"/naturalWordController/getSegmentWord",
-						type:"post",
-						data:{
-							sentence:vm.eg,
-							mode:1,
-							// topK:'',
-						}
-					}).then(function(data){
-						console.log(data);
-						if(data.errorCode == 0){
-							vm.dataList = data.result.dataList;
-							console.log(vm.dataList);
-						}
-					});
-  			}
-    	})
+    	
     },
     methods:{
-
+    	disResult(){
+    		let vm = this;
+	  		//$(".nlp_sentence").on("blur",function(){
+	  			if(vm.eg!=''){
+	  				$.ajax({
+							url:"/naturalWordController/getSegmentWord",
+							type:"post",
+							data:{
+								sentence:vm.eg,
+								mode:1,
+								// topK:'',
+							}
+						}).then(function(data){
+							console.log(data);
+							if(data.errorCode == 0){
+								vm.dataList = data.result.dataList;
+								console.log(vm.dataList);
+							}
+						});
+	  			}
+	    	//})
+    	}
     }
   }
 

@@ -36,7 +36,8 @@
 					<span class="Block">功能演示</span>
 					<span class="nlp_title">示例</span>
 					<textarea class="nlp_sentence" v-model="eg"></textarea>
-					<span class="nlp_title">向量结果</span>
+					<ButtonC class="W120 nlpBtn" @click="disResult()">情感倾向判断</ButtonC>
+					<span class="nlp_title">判断结果</span>
 					<div class="result">
 						
 					</div>
@@ -48,8 +49,9 @@
 
 <script>
 import $ from "jquery";
+import {Button} from "ui";
 	export default{
-
+		components:{ButtonC:Button},
 		data(){
 			return{
 				nav_title:'情感倾向判断',

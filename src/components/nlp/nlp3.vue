@@ -36,8 +36,9 @@
 					<span class="Block">功能演示</span>
 					<span class="nlp_title">示例</span>
 					<textarea class="nlp_sentence" v-model="eg"></textarea>
+					<ButtonC class="W120 nlpBtn" @click="disResult()">向量</ButtonC>
 					<span class="nlp_title">向量结果</span>
-					<div class="result">
+					<div class="result nlp_sentence">
 						
 					</div>
 				</div>
@@ -48,7 +49,9 @@
 
 <script>
 import $ from "jquery";
+import {Button} from "ui";
 	export default{
+		components:{ButtonC:Button},
 		data(){
 			return{
 				nav_title:'词向量表示',

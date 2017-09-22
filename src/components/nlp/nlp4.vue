@@ -1,5 +1,5 @@
 <template>
-	<div class="nlp3">
+	<div class="nlp4">
 		<div class="nlpBg" :style ="bg">
       <div class="wrapper">
         <div class="nav-span">
@@ -40,7 +40,7 @@
 					<textarea class="nlp_sentence" v-model="sentence1"></textarea>
 					<span class="nlp_title">文本2</span>
 					<textarea class="nlp_sentence" v-model="sentence2"></textarea>
-					<ButtonC type="primary" @click="count()">计算相似度</ButtonC>
+					<ButtonC class="W120 nlpBtn" @click="disResult()">计算相似度</ButtonC>
 					<span class="nlp_title">分析结果</span>
 					<div class="result nlp_sentence">
 						{{score}}
@@ -58,7 +58,7 @@ import {Button} from "ui";
 		components:{ButtonC:Button},
 		data(){
 			return{
-				nav_title:'词向量表示',
+				nav_title:'文本相似度',
 				nav_content:'依托全网海量优质数据和深度神经网络技术，实现对词汇的向量化表示，实现文本的可计算',
 				bg: {
           backgroundImage: "url(" + require("../../images/nlp3.png") + ")"
@@ -71,7 +71,7 @@ import {Button} from "ui";
     },
     
     methods:{
-    	count(){
+    	disResult(){
     		let vm = this;
   			if(vm.sentence1!=''&&vm.sentence2!=''){
   				$.ajax({

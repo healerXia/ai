@@ -1,5 +1,6 @@
 .ai{
   .Block{
+  	width: 1102px;
   	margin-top:100px;
   	font-family:PingFangSC-Medium;
 		font-size:28px;
@@ -78,10 +79,11 @@
   			}
 				.result{
 					border: 1px solid rgb(169, 169, 169);
-					width: 1102px;
 					
 					margin-bottom:50px;
-					
+				}
+				.nlpBtn{
+					margin: -50px 0 0 490px; 
 				}
 			}
   	}
@@ -119,6 +121,8 @@
 			.wrapper{
 				.content{
 					.result{
+						width: 1072px;
+						padding-left:30px; 
 						height: 120px;
 						div{
 							width: 800px;
@@ -157,6 +161,7 @@
 			.wrapper{
 				.content{
 					.result{
+						width: 1102px;
 						height: 200px;
 						TableC{
 							width: 1102px;
@@ -206,6 +211,7 @@
 		.demo{
 			.wrapper{
 				.content{
+					
 					.result{
 						height: 120px;
 						
